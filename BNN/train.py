@@ -75,7 +75,10 @@ def train_BNN_classification(net, name, batch_size, nb_epochs, trainset, valset,
 
         # ---- save weights
         if i % re_burn >= burn_in and i % sim_steps == 0:
+            print("Saving weights... %d" % i)
             net.save_sampled_net(max_samples=N_saves)
+        else:
+            print("Skipping saving weights")
 
         # ---- dev
         if i % nb_its_dev == 0:

@@ -9,6 +9,7 @@ from src.utils import *
 from numpy.random import normal
 
 
+
 def train_VAE(net, name, batch_size, nb_epochs, trainset, valset, cuda, flat_ims=False,
               train_plot=False, Nclass=None, early_stop=None, script_mode=False):
 

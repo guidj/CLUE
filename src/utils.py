@@ -144,7 +144,8 @@ class BaseNet(object):
 
     def load(self, filename):
         cprint('c', 'Reading %s\n' % filename)
-        state_dict = torch.load(filename)
+        map_location = None if torch.cuda.is_available() else torch.device('cpu')
+        state_dict = torch.load(filename, map_location=map_location)
         self.epoch = state_dict['epoch']
         self.lr = state_dict['lr']
         self.model = state_dict['model']

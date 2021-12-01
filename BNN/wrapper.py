@@ -116,7 +116,6 @@ class BNN_cat(BaseNet):  # for categorical distributions
         if Nsamples == 0:
             Nsamples = len(self.weight_set_samples)
         x, = to_variable(var=(x, ), cuda=self.cuda)
-
         if grad:
             self.optimizer.zero_grad()
             if not x.requires_grad:
