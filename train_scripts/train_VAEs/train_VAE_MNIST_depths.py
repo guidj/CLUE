@@ -2,7 +2,9 @@ from __future__ import division, print_function
 import sys
 import os
 
-os.environ["CUDA_VISIBLE_DEVICES"] = "%d" % int(sys.argv[1])
+
+# os.environ["CUDA_VISIBLE_DEVICES"] = "%d" % int(sys.argv[1])
+os.environ["CUDA_VISIBLE_DEVICES"] = ""
 
 N_up = 2
 nb_dir = '/'.join(os.getcwd().split('/')[:-N_up])
@@ -33,10 +35,10 @@ valset = datasets.MNIST(root='../data', train=False, download=True, transform=tr
 
 for latent_dim in [12, 16, 30, 40, 80]: #2, 4, 8,
 
-    batch_size = 256
-    nb_epochs = 300
+    batch_size = 12 #1 256
+    nb_epochs = 1 # 300
     lr = 7e-4
-    early_stop = 60
+    early_stop = 1
 
     cuda = torch.cuda.is_available()
 
